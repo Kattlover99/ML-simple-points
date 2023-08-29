@@ -13,6 +13,12 @@
         let values = await jsonData.json();
         values = values.map(extractData).filter(removeErrors);
     }
+
+    function tfPlot(values, surface) {
+        tfvis.render.scatterplot(surface,
+            { values: values, series: ['Original', 'Predicted'] },
+            { xLabel: 'Horsepower', yLabel: 'MPG' });
+    }
 </script>
 
 </html>
