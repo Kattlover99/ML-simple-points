@@ -8,6 +8,11 @@
     function removeErrors(obj) {
         return obj.x != null && obj.y != null;
     }
+    async function runTF() {
+        const jsonData = await fetch("cardata.json");
+        let values = await jsonData.json();
+        values = values.map(extractData).filter(removeErrors);
+    }
 </script>
 
 </html>
