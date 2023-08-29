@@ -27,6 +27,13 @@
     // Convert inputs and labels to 2d tensors
     const inputTensor = tf.tensor2d(inputs, [inputs.length, 1]);
     const labelTensor = tf.tensor2d(labels, [labels.length, 1]);
+
+    const inputMin = inputTensor.min();
+    const inputMax = inputTensor.max();
+    const labelMin = labelTensor.min();
+    const labelMax = labelTensor.max();
+    const nmInputs = inputTensor.sub(inputMin).div(inputMax.sub(inputMin));
+    const nmLabels = labelTensor.sub(labelMin).div(labelMax.sub(labelMin));
 </script>
 
 </html>
