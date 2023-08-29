@@ -34,6 +34,10 @@
     const labelMax = labelTensor.max();
     const nmInputs = inputTensor.sub(inputMin).div(inputMax.sub(inputMin));
     const nmLabels = labelTensor.sub(labelMin).div(labelMax.sub(labelMin));
+
+    const model = tf.sequential();
+    model.add(tf.layers.dense({ inputShape: [1], units: 1, useBias: true }));
+    model.add(tf.layers.dense({ units: 1, useBias: true }));
 </script>
 
 </html>
